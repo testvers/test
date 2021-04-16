@@ -8,17 +8,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setTheme } from '../Global/Slice/ThemeSlice';
 import { State } from '../Global/Types/SliceTypes';
 import GitHubIcon from '@material-ui/icons/GitHub';
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles((_theme: Theme) =>
   createStyles({
     root: {
       flexGrow: 1,
       width: '100vw',
+      marginBottom: '1.45rem',
     },
     title: {
       flexGrow: 1,
       textAlign: 'center',
-      fontSize: 'xx-large'
+      fontSize: 'xx-large',
+      fontWeight: 'bold'
     },
     body: {
       backgroundColor: 'hsl(226, 23%, 11%)',
@@ -43,37 +46,29 @@ const Header = ({ siteTitle }: HeaderProps) => {
   };
 
   return (
-    <header
-      style={{
-        background: islit ? `rebeccapurple` : `hsl(227deg 22% 20%)`,
-        marginBottom: `1.45rem`,
-      }}
-    >
-      <div
-        className={classes.root}
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          paddingTop: '1rem'
-        }}
-      >
-        <GitHubIcon style={{ color: 'white', fontSize: 'xxx-large', marginLeft: '15px', marginTop: '-3px' }} />
-        <h1 className={classes.title}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
-            {siteTitle}
-          </Link>
-        </h1>
-        <IconButton onClick={themeHandle} color="inherit" style={{ color: 'white', marginRight: '15px', marginTop: '-12px' }}>
-          {islit ? <Brightness7Icon style={{fontSize: 'xx-large'}}/> : <Brightness4Icon style={{fontSize: 'xx-large'}}/>}
-        </IconButton>
-      </div>
-    </header>
+    <div className={classes.root}>
+      <AppBar style={{ backgroundColor: islit ? `rebeccapurple` : 'hsl(227deg 22% 20%)' }} position="static" >
+        <Toolbar>
+          <IconButton color="inherit">
+            <GitHubIcon style={{ fontSize: '40px' }} />
+          </IconButton>
+          <Typography variant="h1" className={classes.title}>
+            <Link
+              to="/"
+              style={{
+                color: `white`,
+                textDecoration: `none`,
+              }}
+            >
+              {siteTitle}
+            </Link>
+          </Typography>
+          <IconButton onClick={themeHandle} color="inherit" >
+            {islit ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
+        </Toolbar>
+      </AppBar>
+    </div>
   );
 }
 
