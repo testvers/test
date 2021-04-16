@@ -9,6 +9,7 @@ import { setTheme } from '../Global/Slice/ThemeSlice';
 import { State } from '../Global/Types/SliceTypes';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
+import './header.css';
 
 const useStyles = makeStyles((_theme: Theme) =>
   createStyles({
@@ -22,10 +23,6 @@ const useStyles = makeStyles((_theme: Theme) =>
       textAlign: 'center',
       fontSize: 'xx-large',
       fontWeight: 'bold'
-    },
-    body: {
-      backgroundColor: 'hsl(226, 23%, 11%)',
-      color: 'white',
     },
   }),
 );
@@ -42,7 +39,7 @@ const Header = ({ siteTitle }: HeaderProps) => {
   const themeHandle = () => {
     dispatch(setTheme())
     var element = document.body;
-    element.classList.toggle(classes.body);
+    element.classList.toggle("body");
   };
 
   return (
