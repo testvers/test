@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 import { Link } from "gatsby"
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -41,14 +41,13 @@ const Header = ({ siteTitle }: HeaderProps) => {
     var element = document.body;
     element.classList.toggle("body");
   };
-
   return (
     <div className={classes.root}>
-      <AppBar style={{ backgroundColor: islit ? `rebeccapurple` : 'hsl(227deg 22% 20%)' }} position="static" >
+      <AppBar className={islit ? 'day' : 'dark'} position="static" >
         <Toolbar>
-          <IconButton color="inherit">
-            <GitHubIcon style={{ fontSize: '40px' }} />
-          </IconButton>
+          <a href="https://github.com/Mahmedabid/Contentful-Blog" target="blank">
+            <GitHubIcon style={{ fontSize: '40px', color: 'white' }} />
+          </a>
           <Typography variant="h1" className={classes.title}>
             <Link
               to="/"
