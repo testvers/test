@@ -10,7 +10,6 @@ const IndexPage = () => (
     <p> It includes:</p>
     <ul>
       <li>Typescript</li>
-      <li>Firebase</li>
       <li>Material-ui</li>
       <li>Redux toolkit</li>
       <li>Dark Theme</li>

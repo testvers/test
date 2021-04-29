@@ -24,19 +24,6 @@ module.exports = {
     `@contentful/rich-text-react-renderer`,
     `gatsby-plugin-typescript`,
     {
-      resolve: "gatsby-plugin-firebase",
-      options: {
-        credentials: {
-          apiKey: "",
-          authDomain: "",
-          projectId: "",
-          storageBucket: "",
-          messagingSenderId: "",
-          appId: "",
-        },
-      },
-    },
-    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
