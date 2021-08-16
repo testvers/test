@@ -4,9 +4,9 @@ dotenv.config()
 
 module.exports = {
   siteMetadata: {
-    title: `Edit title in gatsby config`,
-    description: `Gatsby starter for typescript`,
-    author: `@ahmad`,
+    title: `Huzaifa hub`,
+    description: `Huzaifa hub`,
+    author: `@asd`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
