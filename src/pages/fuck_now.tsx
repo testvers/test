@@ -1,9 +1,12 @@
+import { useQuery } from "@apollo/client";
 import * as React from "react"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import { GET_Status } from "./log";
 
 const fucknow = () => {
-    const switchs = true;
+    const { loading, error, data } = useQuery(GET_Status);
+    const switchs = data.status;
     if (switchs) {
     return (
         <Layout>
