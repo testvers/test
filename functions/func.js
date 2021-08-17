@@ -10,7 +10,7 @@ const typeDefs = gql`
     status: [Switch]!
   }
   type Switch {
-    switch: Boolean!
+    status: Boolean!
   }
   type Mutation {
 
@@ -24,28 +24,17 @@ const resolvers = {
     //       q.Paginate(q.Match(q.Index("todo_list"), user))
     //     );
     // },
+    switch: async (parent, args) => {
+        const results = await client.query(
+            q.paginate()
+        )
+    }
   },
   Mutation: {
-    // checkTodo: async (_, { id, status }, { user }) => {
-    //   if (!user) {
-    //     throw new Error("Must be authenticated to add todos");
-    //   }
-    //   const results = await client.query(
-    //     q.Update(q.Ref(q.Collection("switch"), id), {
-    //       data: {
-    //         status
-    //       },
-    //     })
-    //   );
-    //   return {
-    //     ...results.data,
-    //     id: results.ref.id,
-    //   };
-    // },
     filpSwtich: async (_) => {
         const results = await client.query(
             q.update(q.Ref(q.collection("switcher"),{
-
+                status: status!
             }))
         )
     }

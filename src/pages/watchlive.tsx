@@ -4,11 +4,20 @@ import SEO from "../components/seo"
 
 const watchlive = () => {
     const switchs = true;
+    if (switchs) {
     return (
-        {switchs ?
-            (<h1 className="soon">Coming soon...</h1>)
-            :
-            (<h1 className="soon">For Custom users only</h1>)
-        }
+        <Layout>
+            <h1 className="soon">Coming soon...</h1>
+        </Layout>
     )
+    };
+    else{
+    return (
+        <Layout>
+            <h1 className="soon">Access denied</h1>
+        </Layout>
+    )
+    };
 }
+
+export default watchlive;
