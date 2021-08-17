@@ -3,12 +3,12 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const watchlive = () => {
-    const switch = true;
+    const switchs = true;
     return (
-        {switch?
-            <h1 className="soon">Coming soon...</h1>
+        {switchs ?
+            (<h1 className="soon">Coming soon...</h1>)
             :
-            <h1 className="soon">For Custom users only</h1>
+            (<h1 className="soon">For Custom users only</h1>)
         }
     )
 }

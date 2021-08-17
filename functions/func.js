@@ -3,7 +3,7 @@ const faunadb = require("faunadb");
 const q = faunadb.query;
 require("dotenv").config();
 
-const client = new faunadb.Client({ secret: process.env.FAUNADB_SECRET });
+const client = new faunadb.Client({ secret: process.env.FAUNA });
 
 const typeDefs = gql`
   type Query {
@@ -20,21 +20,9 @@ const typeDefs = gql`
 const resolvers = {
   Query: {
     // status: async (parent, args, { user }) => {
-    //   if (!user) {
-    //     return [];
-    //   } else {
     //     const results = await client.query(
     //       q.Paginate(q.Match(q.Index("todo_list"), user))
     //     );
-    //     return results.data.map(([ref, task, status, date]) => {
-    //       return {
-    //         id: ref.id,
-    //         task,
-    //         status,
-    //         date,
-    //       };
-    //     });
-    //   }
     // },
   },
   Mutation: {
@@ -54,6 +42,13 @@ const resolvers = {
     //     id: results.ref.id,
     //   };
     // },
+    filpSwtich: async (_) => {
+        const results = await client.query(
+            q.update(q.Ref(q.collection("switcher"),{
+
+            }))
+        )
+    }
   },
 };
 
