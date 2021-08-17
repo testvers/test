@@ -122,8 +122,13 @@ const Header = ({ siteTitle }: HeaderProps) => {
                 onClose={handleClose}
               >
                 <StyledMenuItem>
-                  <Link to="/fuck_now" style={{textDecoration: "none"}}>
-                    <ListItemText primary="DashBoard" />
+                  <Link to="/fuck_now" style={{ textDecoration: "none" }}>
+                    <ListItemText primary="Fuck now" />
+                  </Link>
+                </StyledMenuItem>
+                <StyledMenuItem>
+                  <Link to="/watchlive" style={{ textDecoration: "none" }}>
+                    <ListItemText primary="Watch live" />
                   </Link>
                 </StyledMenuItem>
                 <StyledMenuItem>
@@ -133,8 +138,11 @@ const Header = ({ siteTitle }: HeaderProps) => {
             </>
             :
             <>
-              <Link to="/fuck_now" style={{textDecoration: "none"}}>
-                <Button className={classes.Button}>DashBoard</Button>
+              <Link to="/fuck_now" style={{ textDecoration: "none" }}>
+                <Button className={classes.Button}>Fuck now</Button>
+              </Link>
+              <Link to="/watchlive" style={{ textDecoration: "none" }}>
+                <Button className={classes.Button}>Watch live</Button>
               </Link>
               <Button className={classes.Button} onClick={() => { netlifyIdentity.open() }}>{user ? user.user_metadata && user.user_metadata.full_name : "LogIn"}</Button>
             </>

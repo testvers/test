@@ -2,6 +2,7 @@ import Layout from "../components/layout"
 import React, { useContext } from 'react';
 import { IdentityContext } from "../../netlifyIdentityContext";
 import { Button } from '@material-ui/core';
+import '../stylePages/log.css';
 
 const LogInPage = () => {
     const { identity: netlifyIdentity } = useContext(IdentityContext);
