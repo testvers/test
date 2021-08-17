@@ -7,34 +7,30 @@ const client = new faunadb.Client({ secret: process.env.FAUNA });
 
 const typeDefs = gql`
   type Query {
-    status: [Switch]!
+    swit: Switched!
   }
-  type Switch {
-    status: Boolean!
+  typw Switched {
+    switch: Boolean!
   }
   type Mutation {
-
+    flipSwitch: Boolean!
   }
 `;
 
 const resolvers = {
   Query: {
-    // status: async (parent, args, { user }) => {
-    //     const results = await client.query(
-    //       q.Paginate(q.Match(q.Index("todo_list"), user))
-    //     );
-    // },
-    switch: async (parent, args) => {
+    swit: async (parent, args) => {
         const results = await client.query(
-            q.paginate()
+            q.Get(q.Ref(q.collection("switcher", '307131765957328968')))
         )
+        return results.data.status;
     }
   },
   Mutation: {
     filpSwtich: async (_) => {
         const results = await client.query(
             q.update(q.Ref(q.collection("switcher"),{
-                status: status!
+                data: {status: status? false: true}
             }))
         )
     }

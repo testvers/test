@@ -10,7 +10,7 @@ const fucknow = () => {
             <h1 className="soon">Coming soon...</h1>
         </Layout>
     )
-    };
+    }
     else{
     return (
         <Layout>
