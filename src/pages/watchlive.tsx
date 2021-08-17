@@ -6,7 +6,10 @@ import { GET_Status } from "./log";
 
 const watchlive = () => {
     const { loading, error, data } = useQuery(GET_Status);
-    const switchs = data.status;
+    let switchs = true
+    if (data) {
+    switchs = data.status;
+    }
     if (switchs) {
     return (
         <Layout>

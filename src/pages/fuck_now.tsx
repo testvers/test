@@ -6,8 +6,13 @@ import { GET_Status } from "./log";
 
 const fucknow = () => {
     const { loading, error, data } = useQuery(GET_Status);
-    const switchs = data.status;
-    log(data, switchs);
+    let switchs = true
+    if (data) {
+    switchs = data.status;
+    
+    console.log(data, switchs);
+    }
+
     if (switchs) {
     return (
         <Layout>
