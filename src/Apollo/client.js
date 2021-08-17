@@ -23,8 +23,8 @@ const authLink = setContext((_, {headers}) => {
 })
 
 const httpLink = new HttpLink({
-  // uri: "/.netlify/functions/todolist"
-  uri: "/.netlify/functions/todolist",
+  // uri: "/.netlify/functions/func"
+  uri: "/.netlify/functions/func",
   fetch
 });
 

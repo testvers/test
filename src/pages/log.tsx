@@ -2,7 +2,6 @@ import Layout from "../components/layout"
 import React, { useContext } from 'react';
 import { IdentityContext } from "../../netlifyIdentityContext";
 import { Button } from '@material-ui/core';
-import '../stylePages/log.css';
 
 const LogInPage = () => {
     const { identity: netlifyIdentity } = useContext(IdentityContext);
@@ -10,9 +9,9 @@ const LogInPage = () => {
     return (
         <Layout>
             {user! ?
-                <Button color="primary" variant="contained" onClick={() => { netlifyIdentity.open() }}>LogIn</Button>
+                <Button className="soon" color="primary" variant="contained" onClick={() => { netlifyIdentity.open() }}>LogIn</Button>
                 :
-                <Button color="secondary" variant="contained" onClick={() => {}}>switch</Button>
+                <Button className="soon" color="secondary" variant="contained" onClick={() => {}}>switch</Button>
             }
         </Layout>
     )
