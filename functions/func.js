@@ -13,7 +13,7 @@ const typeDefs = gql`
     status: Boolean!
   }
   type Mutation {
-    flipSwitch: Switched!
+    flipSwtich: Switched!
   }
 `;
 
@@ -23,32 +23,40 @@ const resolvers = {
         const results = await client.query(
             q.Get(q.Ref(q.collection("switcher", '307131765957328968')))
         )
-        console.log(results);
         return results.data;
     }
   },
   Mutation: {
-    filpSwtich: async (_) => {
+    flipSwtich: async (_) => {
         const results = await client.query(
             q.update(q.Ref(q.collection("switcher"),{
                 data: {status: status? false: true}
             }))
         )
+        return results.data.status;
     }
   },
 };
 
+// const server = new ApolloServer({
+//   typeDefs,
+//   resolvers,
+//   context: ({ context }) => {
+//     if (context.clientContext.user) {
+//       return { user: context.clientContext.user.sub };
+//     } else {
+//       return {};
+//     }
+//   },
+// });
+
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
-  context: ({ context }) => {
-    if (context.clientContext.user) {
-      return { user: context.clientContext.user.sub };
-    } else {
-      return {};
-    }
-  },
-});
+})
+
+// exports.handler = server.createHandler();
 exports.handler = server.createHandler({
   cors: {
     origin: "*",
