@@ -12,7 +12,12 @@ const now = () => {
     
     console.log(data, switchs);
     }
-
+if (error) {
+    console.log(error);
+    }
+    if (loading) {
+    console.log('loading');
+    }
     if (switchs) {
     return (
         <Layout>
