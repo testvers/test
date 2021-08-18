@@ -7,7 +7,6 @@ import Brightness7Icon from '@material-ui/icons/Brightness7';
 import { useDispatch, useSelector } from 'react-redux';
 import { setTheme } from '../Global/Slice/ThemeSlice';
 import { State } from '../Global/Types/SliceTypes';
-import GitHubIcon from '@material-ui/icons/GitHub';
 import { AppBar, Toolbar, Typography, useMediaQuery } from "@material-ui/core";
 import './header.css';
 import Button from '@material-ui/core/Button';
@@ -122,8 +121,8 @@ const Header = ({ siteTitle }: HeaderProps) => {
                 onClose={handleClose}
               >
                 <StyledMenuItem>
-                  <Link to="/fuck_now" style={{ textDecoration: "none" }}>
-                    <ListItemText primary="Fuck now" />
+                  <Link to="/now" style={{ textDecoration: "none" }}>
+                    <ListItemText primary="now" />
                   </Link>
                 </StyledMenuItem>
                 <StyledMenuItem>
@@ -138,8 +137,8 @@ const Header = ({ siteTitle }: HeaderProps) => {
             </>
             :
             <>
-              <Link to="/fuck_now" style={{ textDecoration: "none" }}>
-                <Button className={classes.Button}>Fuck now</Button>
+              <Link to="/now" style={{ textDecoration: "none" }}>
+                <Button className={classes.Button}>now</Button>
               </Link>
               <Link to="/watchlive" style={{ textDecoration: "none" }}>
                 <Button className={classes.Button}>Watch live</Button>
