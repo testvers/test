@@ -7,7 +7,7 @@ import gql from 'graphql-tag';
 
 export const GET_Status = gql`
 {
-  swit {
+  switch {
     status
   }
 }
