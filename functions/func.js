@@ -7,30 +7,29 @@ const client = new faunadb.Client({ secret: process.env.FAUNA });
 
 const typeDefs = gql`
   type Query {
-    switch: [Switched]!
-  }
-  type Switched {
-    status: Boolean!
+    switch: String!
   }
   type Mutation {
-    flipSwtich: Switched!
+    flipSwtich(status: Boolean!): Boolean!
   }
 `;
 
 const resolvers = {
   Query: {
-    switch: async (parent, args) => {
+    switch: async (parent, args, context) => {
+      console.log("context");
         const results = await client.query(
-            q.Get(q.Ref(q.collection("switcher", '307131765957328968')))
+            q.Get(q.Ref("307251878625804359"))
         )
-        return results.data;
+        console.log(results);
+        return 'hi';
     }
   },
   Mutation: {
-    flipSwtich: async (_) => {
+    flipSwtich: async (_, {status}) => {
         const results = await client.query(
-            q.update(q.Ref(q.collection("switcher"),{
-                data: {status: status? false: true}
+            q.Update(q.Ref(q.Collection("switcher", "307251878625804359"),{
+                data: {status}
             }))
         )
         return results.data.status;
