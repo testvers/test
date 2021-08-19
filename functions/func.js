@@ -25,7 +25,7 @@ const resolvers = {
   Query: {
     switch: async (parent, args, context) => {
         const results = await client.query(
-            q.Get(q.Ref(q.Collection("switch"), "307251878625804359"))
+            q.Get(q.Ref(q.Collection("switcher"), "307251878625804359"))
         )
         return results.data;
     },
@@ -38,7 +38,7 @@ const resolvers = {
             })
         )
         return results.data;
-    }
+    },
   },
 };
 

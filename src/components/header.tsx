@@ -57,7 +57,6 @@ const useStyles = makeStyles((_theme: Theme) =>
     },
     title: {
       flexGrow: 1,
-      textAlign: 'center',
       fontSize: 'xx-large',
       fontWeight: 'bold'
     },
@@ -121,8 +120,8 @@ const Header = ({ siteTitle }: HeaderProps) => {
                 onClose={handleClose}
               >
                 <StyledMenuItem>
-                  <Link to="/now" style={{ textDecoration: "none" }}>
-                    <ListItemText primary="now" />
+                  <Link to="/fucknow" style={{ textDecoration: "none" }}>
+                    <ListItemText primary="Fuck Now" />
                   </Link>
                 </StyledMenuItem>
                 <StyledMenuItem>
@@ -137,8 +136,8 @@ const Header = ({ siteTitle }: HeaderProps) => {
             </>
             :
             <>
-              <Link to="/now" style={{ textDecoration: "none" }}>
-                <Button className={classes.Button}>now</Button>
+              <Link to="/fucknow" style={{ textDecoration: "none" }}>
+                <Button className={classes.Button}>Fuck Now</Button>
               </Link>
               <Link to="/watchlive" style={{ textDecoration: "none" }}>
                 <Button className={classes.Button}>Watch live</Button>

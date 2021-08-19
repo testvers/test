@@ -3,5 +3,5 @@ export interface ThemeState {
 }
 
 export interface State {
-    themes: ThemeState
+    themes: ThemeState;
 }
