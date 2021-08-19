@@ -15,7 +15,9 @@ import gql from 'graphql-tag';
 
 export const GET_Status = gql`
 {
-  switch
+  switch {
+      status
+  }
 }
 `;
 
@@ -43,14 +45,15 @@ const LogInPage = () => {
     if (data) {
        console.log(data);
     }
-    const status = data && data.switch && data.switch.status || false;
+    let status = true;
+    status = data && data.switch && data.switch.status;
     const UpdateSwtich = () => {
 
             flipSwitch({
                 variables: {
-                    status: !status
+                    status
                 },
-                refetchQueries: [{ query: GET_Status }],
+                // refetchQueries: [{ query: GET_Status }],
             });
         }
     return (
@@ -58,7 +61,7 @@ const LogInPage = () => {
             {!user ?
                 <Button className="soon" color="primary" variant="contained" onClick={() => { netlifyIdentity.open() }}>LogIn</Button>
                 :
-                user && user.id === process.env.USER1 || process.env.USER2?
+                user && user.id === process.env.USER1 || process.env.USER2 ?
                 <Button className="soon" color="secondary" variant="contained" onClick={() => {UpdateSwtich()}}>switch</Button>
                 :
                 null

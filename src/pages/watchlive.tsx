@@ -14,6 +14,8 @@ const watchlive = () => {
     return (
         <Layout>
             <h1 className="soon">Coming soon...</h1>
+            <p style={{color: 'red'}}>Only premium members can have access to live video section.</p>
+            <p style={{color: 'green'}}>Announcing soon.</p>
         </Layout>
     )
     }
