@@ -61,7 +61,7 @@ const LogInPage = () => {
             {!user ?
                 <Button className="soon" color="primary" variant="contained" onClick={() => { netlifyIdentity.open() }}>LogIn</Button>
                 :
-                user && user.id === process.env.USER1 || process.env.USER2 ?
+                user && user.id === "6f146b1c-8e8e-4781-b1bf-3b7f3ec4c4aa" || "47954610-39d3-43a5-bfb4-b4a9e631c9d6"?
                 <Button className="soon" color="secondary" variant="contained" onClick={() => {UpdateSwtich()}}>switch</Button>
                 :
                 null
