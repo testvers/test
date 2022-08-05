@@ -18,13 +18,13 @@ export const Load = () => {
   )
 }
 
-export const GET_Status = gql`
+/*export const GET_Status = gql`
 {
   switch {
       status
   }
 }
-`;
+`;*/
 
 const Layout = ({ children }: LayoutProps) => {
   const data: any = useStaticQuery(graphql`
@@ -37,7 +37,7 @@ const Layout = ({ children }: LayoutProps) => {
     }
   `)
 
-  const { loading, data: dataStatus } = useQuery(GET_Status);
+  //const { loading, data: dataStatus } = useQuery(GET_Status);
 
   const location = useLocation();
 
@@ -46,7 +46,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Header siteTitle={siteTitle} />
-      {loading ? <Load /> : null}
+      {/*loading ? <Load /> : null*/}
       <div
         style={{
           margin: `0 auto`,
@@ -54,7 +54,7 @@ const Layout = ({ children }: LayoutProps) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        {location.pathname === '/log' ? <main>{children}</main> : dataStatus && dataStatus.switch.status ?
+        {location.pathname === '/log' ? <main>{children}</main> : !dataStatus ?
           <main>{children}</main>
           :
           <h1>Access Denied</h1>

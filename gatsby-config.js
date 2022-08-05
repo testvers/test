@@ -4,8 +4,8 @@ dotenv.config()
 
 module.exports = {
   siteMetadata: {
-    title: `Huzaifa hub`,
-    description: `Huzaifa hub`,
+    title: `Anas hub`,
+    description: `Anas hub`,
     author: `@asd`,
   },
   plugins: [

@@ -33,7 +33,7 @@
 //   link: authLink.concat(httpLink)
 // })
 
-import fetch from 'cross-fetch';
+/*import fetch from 'cross-fetch';
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client';
 
 export const client = new ApolloClient({
@@ -42,4 +42,4 @@ export const client = new ApolloClient({
     fetch,
   }),
   cache: new InMemoryCache()
-});
+});*/
