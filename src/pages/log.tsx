@@ -31,7 +31,7 @@ const LogInPage = () => {
         }*/
     return (
         <Layout>
-            {loading? <Load/>: null}
+            
             {!user ?
                 <Button className="soon" color="primary" variant="contained" onClick={() => { netlifyIdentity.open() }}>LogIn</Button>
                 :
