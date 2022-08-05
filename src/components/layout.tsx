@@ -54,10 +54,8 @@ const Layout = ({ children }: LayoutProps) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        {location.pathname === '/log' ? <main>{children}</main> : !dataStatus ?
+        {location.pathname === '/log' ? <main>{children}</main> :
           <main>{children}</main>
-          :
-          <h1>Access Denied</h1>
         }
       </div>
     </>
