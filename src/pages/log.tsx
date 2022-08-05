@@ -1,24 +1,24 @@
-import Layout, { GET_Status, Load } from "../components/layout"
+import Layout, {  Load } from "../components/layout"
 import React, { useContext } from 'react';
 import { IdentityContext } from "../../netlifyIdentityContext";
 import { Button } from '@material-ui/core';
 import { useMutation, useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
 
-const UPDATE_Switch = gql`
+/*const UPDATE_Switch = gql`
     mutation flipSwitch($status: Boolean!) {
         flipSwtich(status: $status) {
             status
         }
     }
 `;
-
+*/
 const LogInPage = () => {
-    const [flipSwitch, {loading}] = useMutation(UPDATE_Switch);
+  //  const [flipSwitch, {loading}] = useMutation(UPDATE_Switch);
     const { identity: netlifyIdentity } = useContext(IdentityContext);
     const { user } = useContext(IdentityContext);
-    const { loading: statusLoad , data: dataStatus } = useQuery(GET_Status);
-
+   // const { loading: statusLoad , data: dataStatus } = useQuery(GET_Status);
+/*
     let status = dataStatus? dataStatus.switch.status: true;
 
     const UpdateSwtich = () => {
@@ -28,10 +28,10 @@ const LogInPage = () => {
                 },
                 refetchQueries: [{ query: GET_Status }],
             });
-        }
+        }*/
     return (
         <Layout>
-            {loading || statusLoad? <Load/>: null}
+            {loading <Load/>: null}
             {!user ?
                 <Button className="soon" color="primary" variant="contained" onClick={() => { netlifyIdentity.open() }}>LogIn</Button>
                 :
